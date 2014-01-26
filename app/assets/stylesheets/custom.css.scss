@@ -1,0 +1,100 @@
+@import "bootstrap";
+
+$lightGray: #eaeaea;
+
+/* universal */
+
+html {
+  overflow-y: scroll;
+}
+
+body {
+  padding-top: 60px;
+}
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.center {
+	text-align: center;
+}
+
+.main-unit {
+
+	h1 {
+		letter-spacing: -2px;
+	}
+
+	h2 {
+		color: #555;
+	}
+}
+
+/* header */
+
+#logo {
+	text-decoration: none;
+	color: white;
+	float: left;
+	padding-top: 9px;
+	font-weight: bold;
+	font-size: 1.7em;
+	letter-spacing: -1px;
+}
+
+.main-nav {
+	float: right;
+	padding-top: 14px;
+	list-style: none;
+
+	li {
+		float: left;
+		margin-left: 24px;
+	}
+
+	a {
+		text-decoration: none;
+		color: #999;
+
+		&:hover {
+			color: white;
+		}
+	}
+}
+
+/* footer */
+
+footer {
+	margin-top: 45px;
+	border-top: 1px solid $lightGray;
+	padding-top: 5px;
+	color: #999;
+
+	small {
+		float: left;
+	}
+
+	a {
+		color: #555;
+
+		&:hover {
+			color: black;
+		}
+
+	}
+
+	ul {
+		list-style: none;
+		float: right;
+
+		li {
+			float: left;
+			margin-left: 10px;
+		}
+	} 
+}
