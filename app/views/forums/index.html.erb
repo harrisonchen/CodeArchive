@@ -1,0 +1,15 @@
+<% provide(:title, "Forum") %>
+<h1 class="center">Forums</h1>
+
+<% if signed_in? %>
+	<div class="center">
+		<%= link_to 'Create a new thread!', new_forum_path(@current_user.id) %>
+	</div>
+<% end %>
+
+<% if @threads.any? %>
+	<h2>Threads</h2>
+	<% @threads.each do |thread| %>
+		<h5><%= link_to "#{thread.topic}", forum_path(thread.id) %></h5>
+	<% end %>
+<% end %>

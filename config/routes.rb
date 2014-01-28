@@ -2,6 +2,7 @@ Codearchive::Application.routes.draw do
 
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
+  resources :forums
 
   root 'static_pages#home'
 

@@ -6,7 +6,7 @@
 				<ul class="main-nav">
 					<% if signed_in? %>
 						<li><%= link_to "Home", root_path %></li>
-						<li><%= link_to "Forum", '#' %></li>
+						<li><%= link_to "Forums", forums_path %></li>
 						<% if current_user.admin? %>
 							<li><%= link_to "Users", users_path %></li>
 						<% end %>
@@ -23,6 +23,7 @@
 						</li>
 					<% else %>
 						<li><%= link_to 'Home', root_path %></li>
+						<li><%= link_to "Forums", forums_path %></li>
 						<li><%= link_to 'Sign in', signin_path %></li>
 					<% end %>
 				</ul>

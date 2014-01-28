@@ -1,0 +1,14 @@
+<% provide(:title, 'Edit thread') %>
+<h1 class="center">Edit thread</h1>
+
+<div class="sign-form">
+    <%= form_for(@thread) do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>
+
+        <%= f.label :topic, "Thread topic" %>
+        <%= f.text_field :topic %>
+
+        <%= f.submit "Post!", class: "submit-btn btn btn-large btn-primary" %>
+
+    <% end %>
+</div>

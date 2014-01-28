@@ -1,0 +1,9 @@
+<% provide(:title, "Edit thread") %>
+<h1 class="center"><%= @thread.topic %></h1>
+<% if @thread.user == current_user %>
+	<div class="center">
+		<%= link_to "Delete thread", @thread, method: :delete, 
+				data: { confirm: "Are you sure?" } %><br />
+		<%= link_to "Edit thread", edit_forum_path(@thread) %>
+	</div>
+<% end %>
