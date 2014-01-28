@@ -58,7 +58,7 @@ class ForumsController < ApplicationController
   		end
 
   		def correct_user
-  			@thread = Forum.find(params[id])
+  			@thread = Forum.find(params[:id])
   			if current_user != @thread.user
   				flash[:warning] = "Do not try to change other user's forums"
   				redirect_to forums_url
