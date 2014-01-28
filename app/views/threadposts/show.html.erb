@@ -4,6 +4,6 @@
 	<div class="center">
 		<%= link_to "Delete thread", @thread, method: :delete, 
 				data: { confirm: "Are you sure?" } %><br />
-		<%= link_to "Edit thread", edit_forumthread_path(@thread) %>
+		<%= link_to "Edit thread", edit_threadpost_path(@thread) %>
 	</div>
 <% end %>
