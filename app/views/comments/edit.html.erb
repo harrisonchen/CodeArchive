@@ -1,0 +1,12 @@
+<% provide(:title, "Edit comment") %>
+<h1 class="center">Edit comment</h1>
+
+<%= form_for(@comment) do |f| %>
+	<%= hidden_field_tag :thread_id, @thread.id %>
+	<%= hidden_field_tag :user_id, current_user.id %>
+	<%= render 'shared/error_messages', object: f.object %>
+	<div class="sign-form">
+		<%= f.text_area :content, placeholder: "Comment..." %>
+		<%= f.submit "Post", class: "submit-btn btn btn-large btn-primary" %>
+	</div>
+<% end %>

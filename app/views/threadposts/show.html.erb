@@ -19,7 +19,14 @@
 <% end %>
 
 <% if @thread.comments.any? %>
+	<br />
 	<% @thread.comments.all.each do |comment| %>
-		<%= comment.content %><br />
+		<%= comment.content %>
+		<% if current_user == comment.user %>
+			--- <%= link_to "edit comment", edit_comment_path(comment) %>
+				| <%= link_to "delete comment", comment, method: :delete,
+					data: { confirm: "Are you sure?" } %>
+		<% end %>
+		<br />
 	<% end %>
 <% end %>

@@ -28,15 +28,25 @@ class CommentsController < ApplicationController
 	end
 
 	def edit
-
+		@comment = Comment.find(params[:id])
+		@thread = @comment.threadpost
 	end
 
 	def update
-
+		@comment = Comment.find(params[:id])
+		if @comment.update_attributes(comment_params)
+			flash[:success] = "Comment changed"
+			redirect_to @comment.threadpost
+		else
+			render 'edit'
+		end
 	end
 
 	def destroy
-
+		comment = Comment.find(params[:id])
+		comment.destroy
+		flash[:success] = "Comment deleted"
+		redirect_to comment.threadpost
 	end
 
 	private
