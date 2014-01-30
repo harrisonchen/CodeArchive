@@ -14,7 +14,7 @@ class ThreadpostsController < ApplicationController
 			redirect_to threadposts_url
 		else
 			@thread = current_user.threadposts.build if signed_in? # Comment if want form error
-			flash.now[:error] = "Please fill in the new thread topic"
+			flash.now[:danger] = "Please fill in the new thread topic"
 			render 'thread/index'
 		end
 	end
@@ -26,6 +26,7 @@ class ThreadpostsController < ApplicationController
 
 	def show
 		@thread = Threadpost.find(params[:id])
+		@comment = @thread.comments.build if signed_in?
 	end
 
 	def edit
@@ -46,8 +47,8 @@ class ThreadpostsController < ApplicationController
 
 	def destroy
 		thread = Threadpost.find(params[:id])
-		thread_name = thread.destroy
-		flash[:success] = "Threadpost: #{thread.topic} deleted"
+		thread_temp = thread.destroy
+		flash[:success] = "Threadpost: '#{thread_temp.topic}' deleted"
 		redirect_to threadposts_url
 	end
 
