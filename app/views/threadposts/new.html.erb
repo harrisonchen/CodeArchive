@@ -1,12 +1,13 @@
-<% provide(:title, 'Edit thread') %>
-<h1 class="center">Edit thread</h1>
+<% provide(:title, 'New thread') %>
+<h1 class="center">New thread for: <br /><%= @forum.category %></h1>
 
 <div class="sign-form">
     <%= form_for(@thread) do |f| %>
+    	<%= hidden_field_tag :forum_id, @forum.id %>
         <%= render 'shared/error_messages', object: f.object %>
 
         <%= f.label :topic, "Thread topic" %>
-        <%= f.text_field :topic %>
+        <%= f.text_area :topic, placeholder: "Hello World!" %>
 
         <%= f.submit "Post!", class: "submit-btn btn btn-large btn-primary" %>
 

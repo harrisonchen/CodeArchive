@@ -1,12 +1,16 @@
 <% provide(:title, "Edit thread") %>
 <h1 class="center"><%= @thread.topic %></h1>
-<% if @thread.user == current_user %>
-	<div class="center">
+<div class="center">
+	---Posted by <%= @thread.user.name %> at <%= @thread.created_at %><br />
+	<% if @thread.created_at != @thread.updated_at %>
+		--- Updated on <%= @thread.updated_at %><br />
+	<% end %>
+	<% if @thread.user == current_user %>
 		<%= link_to "Delete thread", @thread, method: :delete, 
 				data: { confirm: "Are you sure?" } %><br />
 		<%= link_to "Edit thread", edit_threadpost_path(@thread) %>
-	</div>
-<% end %>
+	<% end %>
+</div>
 
 <%= form_for(@comment) do |f| %>
 	<%= hidden_field_tag :thread_id, @thread.id %>
@@ -25,7 +29,10 @@
 				<div class="comments-list">
 					<li>
 						<%= comment.content %><br />
-						--- Posted by <%= comment.user.name %>
+						--- Posted by <%= comment.user.name %> at <%= comment.created_at %>
+						<% if comment.created_at != comment.updated_at %>
+							<br />--- Updated on <%= comment.updated_at %>
+						<% end %>
 						<% if current_user == comment.user %>
 							 | <%= link_to "edit comment", edit_comment_path(comment) %>
 								| <%= link_to "delete comment", comment, method: :delete,

@@ -4,18 +4,20 @@ class ThreadpostsController < ApplicationController
 
 	def new
 		@thread = current_user.threadposts.build if signed_in?
+		@forum = Forum.find(params[:forum_id])
 	end
 
 	def create
 		@user = User.find(current_user.id)
 		@thread = @user.threadposts.build(thread_params)
+		@thread.forum_id = params[:forum_id]
 		if @thread.save
 			flash[:success] = "New thread: #{@thread.topic} created!"
-			redirect_to threadposts_url
+			redirect_to @thread
 		else
 			@thread = current_user.threadposts.build if signed_in? # Comment if want form error
 			flash.now[:danger] = "Please fill in the new thread topic"
-			render 'thread/index'
+			render 'new'
 		end
 	end
 

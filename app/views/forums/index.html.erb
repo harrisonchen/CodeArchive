@@ -1,0 +1,15 @@
+<% provide(:title, "Forums") %>
+<h1 class="center">Forums</h1>
+
+<% if signed_in? %>
+	<div class="center">
+		<%= link_to 'Create a new forum!', new_forum_path %>
+	</div>
+<% end %>
+
+<% if @forums.any? %>
+	<h2>Category</h2>
+	<% @forums.each do |forum| %>
+		<h5><%= link_to "#{forum.category} (#{forum.threadposts.count})", forum_path(forum.id) %></h5>
+	<% end %>
+<% end %>

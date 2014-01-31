@@ -1,0 +1,26 @@
+<% provide(:title, @forum.category) %>
+<div class="center">
+	<h1><%= @forum.category %></h1>
+	<% if !current_user.admin? %>
+		<%= link_to "Delete forum", @forum, method: :delete, 
+				data: { confirm: "Are you sure?" } %><br />
+		<%= link_to "Edit forum", edit_forum_path(@forum) %>
+	<% end %>
+</div>
+
+<% if signed_in? %>
+	<div>
+		<%= link_to 'Create a new thread!', new_threadpost_path(forum_id: @forum.id, forum_category: @forum.category) %>
+	</div>
+<% end %>
+
+<% if @forum.threadposts.any? %>
+	<h2>Threads</h2>
+	<ul>
+		<% @forum.threadposts.all.each do |thread| %>
+			<div class="thread-list">
+				<li><%= link_to "#{thread.topic}", threadpost_path(thread) %></li>
+			</div>
+		<% end %>
+	</ul>
+<% end %>

@@ -1,0 +1,14 @@
+<% provide(:title, 'Edit forum') %>
+<h1 class="center">Edit forum</h1>
+
+<div class="sign-form">
+    <%= form_for(@forum) do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>
+
+        <%= f.label :category, "Forum category" %>
+        <%= f.text_field :category %>
+
+        <%= f.submit "Post!", class: "submit-btn btn btn-large btn-primary" %>
+
+    <% end %>
+</div>
