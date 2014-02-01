@@ -10,6 +10,6 @@
 <% if @forums.any? %>
 	<h2>Category</h2>
 	<% @forums.each do |forum| %>
-		<h5><%= link_to "#{forum.category} (#{forum.threadposts.count})", forum_path(forum.id) %></h5>
+		<h4 class="forum-list"><%= link_to "#{forum.category} (#{pluralize(forum.threadposts.count, 'thread')})", forum_path(forum.id) %></h4>
 	<% end %>
 <% end %>

@@ -1,10 +1,11 @@
 class StaticPagesController < ApplicationController
-  def home
-  end
+	def home
+		@threads = Threadpost.all
+	end
 
-  def help
-  end
+	def help
+	end
 
-  def contact
-  end
+	def contact
+	end
 end

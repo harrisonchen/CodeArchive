@@ -186,3 +186,37 @@ input {
 .thread-list {
 	list-style: none;
 }
+
+.thread-category {
+	border: 1px solid black;
+	padding: 3px;
+	background-color: #D0D0D0;
+}
+
+.thread-box {
+	margin-top: 20px;
+
+	h4 {
+		border-top: 1px solid black;
+		padding-top: 16px;
+		padding-bottom: 5px;
+		font-weight: bold;
+
+		&:last-child {
+			border-bottom: 1px solid black;
+			padding-bottom: 14px;
+		}
+	}
+}
+
+.forum-list {
+	font-weight: bold;
+
+	a {
+		text-decoration: none;
+	}
+}
+
+.response-number {
+	float: right;
+}

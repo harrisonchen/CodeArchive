@@ -16,11 +16,10 @@
 
 <% if @forum.threadposts.any? %>
 	<h2>Threads</h2>
-	<ul>
+	<div class="thread-box">
 		<% @forum.threadposts.all.each do |thread| %>
-			<div class="thread-list">
-				<li><%= link_to "#{thread.topic}", threadpost_path(thread) %></li>
-			</div>
+			<h4><span class="thread-category"><%= thread.forum.category %></span>
+				<%= link_to "#{thread.topic}", threadpost_path(thread) %></h4>
 		<% end %>
-	</ul>
+	</div>
 <% end %>

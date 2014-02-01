@@ -1,7 +1,22 @@
-<div class="main-unit center jumbotron">
-	<h1>TheCodeArchive</h1>
+<% if signed_in? %>
+	<h1>Recent Threads</h1>
 
-	<h2>A community for programmers everywhere</h2>
+	<% if @threads.any? %>
+		<div class="thread-box">
+			<% @threads.each do |thread| %>
+				<h4><span class="thread-category"><%= thread.forum.category %></span>
+					<%= link_to "#{thread.topic}", threadpost_path(thread.id) %>
+					<span class="response-number"><%= pluralize(thread.comments.count, 'response') %></span></h4>
+			<% end %>
+		</div>
+	<% end %>
 
-	<%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
-</div>
+<% else %>
+	<div class="main-unit center jumbotron">
+		<h1>TheCodeArchive</h1>
+
+		<h2>A community for programmers everywhere</h2>
+
+		<%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
+	</div>
+<% end %>
