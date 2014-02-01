@@ -19,7 +19,13 @@
 	<div class="thread-box">
 		<% @forum.threadposts.all.each do |thread| %>
 			<h4><span class="thread-category"><%= thread.forum.category %></span>
-				<%= link_to "#{thread.topic}", threadpost_path(thread) %></h4>
+				<%= link_to "#{thread.topic}", threadpost_path(thread) %>
+				<span class="response-number">
+					<%= pluralize(thread.comments.count, 'response') %>
+				</span>
+				<span class="thread-created-time">Posted 
+						<%= time_ago_in_words(thread.created_at) %></span>
+			</h4>
 		<% end %>
 	</div>
 <% end %>

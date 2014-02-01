@@ -27,7 +27,7 @@ html {
 }
 
 body {
-  padding-top: 60px;
+  padding-top: 0px;
 }
 
 section {
@@ -40,6 +40,18 @@ textarea {
 
 .center {
 	text-align: center;
+}
+
+.nav-bar {
+	background-color: #181818;
+}
+
+.container {
+	margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 960px;
 }
 
 .main-unit {
@@ -59,7 +71,7 @@ textarea {
 	text-decoration: none;
 	color: white;
 	float: left;
-	padding-top: 9px;
+	padding-top: 3px;
 	font-weight: bold;
 	font-size: 1.7em;
 	letter-spacing: -1px;
@@ -67,7 +79,7 @@ textarea {
 
 .main-nav {
 	float: right;
-	padding-top: 14px;
+	padding-top: 10px;
 	list-style: none;
 
 	li {
@@ -219,4 +231,10 @@ input {
 
 .response-number {
 	float: right;
+}
+
+.thread-created-time {
+	font-weight: normal;
+	font-size: 16px;
+
 }
