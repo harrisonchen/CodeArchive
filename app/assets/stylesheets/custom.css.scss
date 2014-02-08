@@ -132,7 +132,7 @@ footer {
 /* forms */
 
 .sign-form {
-	margin: 0 200px;
+	margin: 0 150px;
 
 	form {
 		width: auto;
@@ -141,6 +141,10 @@ footer {
 
 	.submit-btn {
 		width: auto;
+	}
+
+	textarea {
+		height: 200px;
 	}
 }
 

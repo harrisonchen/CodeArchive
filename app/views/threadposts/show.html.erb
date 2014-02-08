@@ -28,7 +28,7 @@
 			<% if comment.content != nil %>
 				<div class="comments-list">
 					<li>
-						<%= comment.content %><br />
+						<%= simple_format(comment.content) %><br />
 						--- Posted by <%= comment.user.name %> at <%= comment.created_at %>
 						<% if comment.created_at != comment.updated_at %>
 							<br />*** Updated on <%= comment.updated_at %> ***
