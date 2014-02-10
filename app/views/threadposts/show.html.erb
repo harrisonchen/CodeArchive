@@ -1,7 +1,9 @@
 <% provide(:title, "Edit thread") %>
-<h1 class="center"><u><%= @thread.title %></u></h1>
-<h3 class="thread-topic"><%= simple_format(@thread.topic) %></h3>
-<div class="center">
+
+<div class="thread-topic">
+<h1><b><%= @thread.title %></b></h1>
+<h3><%= simple_format(@thread.topic) %></h3>
+
 	---Posted by <%= @thread.user.name %> at <%= @thread.created_at %><br />
 	<% if @thread.created_at != @thread.updated_at %>
 		*** Updated on <%= @thread.updated_at %> ***<br />
@@ -12,16 +14,6 @@
 		<%= link_to "Edit thread", edit_threadpost_path(@thread) %>
 	<% end %>
 </div>
-
-<%= form_for(@comment) do |f| %>
-	<%= hidden_field_tag :thread_id, @thread.id %>
-	<%= hidden_field_tag :user_id, current_user.id %>
-	<%= render 'shared/error_messages', object: f.object %>
-	<div class="sign-form">
-		<%= f.text_area :content, placeholder: "Comment..." %>
-		<%= f.submit "Post", class: "submit-btn btn btn-large btn-primary" %>
-	</div>
-<% end %>
 
 <% if @thread.comments.any? %>
 	<ul>
@@ -45,3 +37,14 @@
 		<% end %>
 	</ul>
 <% end %>
+
+<%= form_for(@comment) do |f| %>
+	<%= hidden_field_tag :thread_id, @thread.id %>
+	<%= hidden_field_tag :user_id, current_user.id %>
+	<%= render 'shared/error_messages', object: f.object %>
+	<div class="comment-form">
+		<%= f.text_area :content, placeholder: "Comment..." %>
+		<%= f.submit "Post", class: "submit-btn btn btn-large btn-primary" %>
+	</div>
+<% end %>
+
