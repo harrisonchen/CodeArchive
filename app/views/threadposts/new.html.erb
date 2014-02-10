@@ -6,7 +6,9 @@
     	<%= hidden_field_tag :forum_id, @forum.id %>
         <%= render 'shared/error_messages', object: f.object %>
 
-        <%= f.label :topic, "Thread topic" %>
+        <%= f.label :title %>
+        <%= f.text_field :title %>
+        <%= f.label :topic, "Question" %>
         <%= f.text_area :topic, placeholder: "Hello World!" %>
 
         <%= f.submit "Post!", class: "submit-btn btn btn-large btn-primary" %>

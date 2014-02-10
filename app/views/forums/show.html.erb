@@ -19,7 +19,7 @@
 	<div class="thread-box">
 		<% @forum.threadposts.all.each do |thread| %>
 			<h4><span class="thread-category"><%= thread.forum.category %></span>
-				<%= link_to "#{thread.topic}", threadpost_path(thread) %>
+				<%= link_to "#{thread.title}", threadpost_path(thread) %>
 				<span class="response-number">
 					<%= pluralize(thread.comments.count, 'response') %>
 				</span>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140131215852) do
+ActiveRecord::Schema.define(version: 20140210050200) do
 
   create_table "comments", force: true do |t|
     t.string   "content"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20140131215852) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "forum_id"
+    t.string   "title"
   end
 
   add_index "threadposts", ["user_id", "created_at"], name: "index_forumThreads_on_user_id_and_created_at"

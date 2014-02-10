@@ -57,7 +57,7 @@ class ThreadpostsController < ApplicationController
 	private
 
 		def thread_params
-  			params.require(:threadpost).permit(:topic)
+  			params.require(:threadpost).permit(:topic, :title)
   		end
 
   		def correct_user

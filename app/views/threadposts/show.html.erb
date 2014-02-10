@@ -1,5 +1,6 @@
 <% provide(:title, "Edit thread") %>
-<h1 class="center"><%= @thread.topic %></h1>
+<h1 class="center"><u><%= @thread.title %></u></h1>
+<h3 class="thread-topic"><%= simple_format(@thread.topic) %></h3>
 <div class="center">
 	---Posted by <%= @thread.user.name %> at <%= @thread.created_at %><br />
 	<% if @thread.created_at != @thread.updated_at %>

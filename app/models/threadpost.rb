@@ -6,4 +6,5 @@ class Threadpost < ActiveRecord::Base
 	validates :user_id, presence: true
 	validates :forum_id, presence: true
 	validates :topic, presence: true
+	validates :title, presence: true, length: { maximum: 50 }
 end
